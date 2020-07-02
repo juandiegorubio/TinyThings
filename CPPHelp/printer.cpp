@@ -7,7 +7,7 @@
 #include <map>
 #include <unordered_map>
 #include <boost/variant.hpp>
-
+using namespace std;
 
 typedef boost::variant<int, float, double, char, std::string> myvariant;
 
@@ -28,30 +28,30 @@ public:
   }
 
   void print(myvariant salida) {
-    std::cout << salida;
+    cout << salida;
   }
 
-  void print(std::vector<myvariant> salida) {
-    std::cout << abrir;
+  void print(vector<myvariant> salida) {
+    cout << abrir;
     for(int i = 0; i < salida.size()-1; ++i) {
       print(salida[i]);
-      std::cout << separador;
+      cout << separador;
     }
     print( salida[salida.size()-1] );
-    std::cout << cerrar;
+    cout << cerrar;
   }
 
-  void print(std::list<myvariant> salida) {
-    std::cout << abrir;
+  void print(list<myvariant> salida) {
+    cout << abrir;
     auto itend = salida.end(); itend--;
     for(auto it = salida.begin(); it != itend; ++it){
       print(*it);
-      std::cout << separador;
+      cout << separador;
     }
     print(*itend);
-    std::cout << cerrar;
+    cout << cerrar;
   }
-
+/*
   void print(std::set<myvariant> salida) {
     std::cout << abrir;
     auto itend = salida.end(); itend--;
@@ -91,5 +91,5 @@ public:
     print(itend->second);
     std::cout << cerrar << cerrar;
   }
-
+*/
 };
